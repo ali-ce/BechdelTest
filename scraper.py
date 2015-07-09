@@ -7,6 +7,7 @@ import requests
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
 movieList = root.cssselect("div[class='movie'] a")
+print movieList
 
 for movie in movieList:
  movieID = movie.attrib['id']
