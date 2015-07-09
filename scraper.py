@@ -7,8 +7,8 @@ import requests
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
 data = {
- "MovieId"=[movieID.attrib['id'] for movieid in root.cssselect("div[class='movie'] a"),
- "MovieTitle"=[title.text_content().encode('utf-8') for title in root.cssselect("div[class='movie'] a")
+ 'MovieId' : [movieID.attrib['id'] for movieid in root.cssselect("div[class='movie'] a"),
+ 'MovieTitle' : [title.text_content().encode('utf-8') for title in root.cssselect("div[class='movie'] a"),
  }
 scraperwiki.sqlite.save(unique_keys = ['MovieId'], data=data)
 #for el in root.cssselect("div[class='movie'] a"):
