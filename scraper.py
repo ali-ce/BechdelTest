@@ -25,7 +25,6 @@ for movie in movieList:
   }
  scraperwiki.sqlite.save(unique_keys = ['movieID'], data=data)
  print data
- break
 
 #for el in root.cssselect("div[class='movie'] a"):
  #title = el.text_content().encode('utf-8')
