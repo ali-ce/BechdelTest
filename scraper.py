@@ -16,11 +16,11 @@ for movie in movieList:
  passInfo = movieList.cssselect( "img").attib['title']
  link = movie.attrib['href'] [1]
  data = {
-  'movieID' : movieID,
-  'Title' : title
-  'IMDb Profile' : imdbUrl
-  'Number of Criteria Passed' : passed
-  'Details on Criteria Passed' : passInfo
+  'movieID': movieID,
+  'Title': title,
+  'IMDb Profile': imdbUrl,
+  'Number of Criteria Passed': passed,
+  'Details on Criteria Passed': passInfo,
   'Source and Discussion': link
   }
  scraperwiki.sqlite.save(unique_keys = ['movieID'], data=data)
