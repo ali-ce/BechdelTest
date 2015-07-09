@@ -4,9 +4,9 @@ import scraperwiki
 import lxml.html
 import requests
 
-html = scraperwiki.scrape("http://bechdeltest.com/?list=all")
+html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
-print root
+title = root.cssselect(
 #data = {
  # 'Title' : [title.text_content() for title in root.cssselect("div[class= 'movie'] a ")][2]
   
