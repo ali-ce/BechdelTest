@@ -6,11 +6,11 @@ import requests
 
 html = scraperwiki.scrape("http://bechdeltest.com/?list=all")
 root = lxml.html.fromstring(html)
-
-data = {
-  'Title' : [title.text_content() for title in root.cssselect("div[class= 'movie'] a ")][2]
+print root
+#data = {
+ # 'Title' : [title.text_content() for title in root.cssselect("div[class= 'movie'] a ")][2]
   
-scraperwiki.sqlite.save(unique_keys = ['Product'], data=data)
+#scraperwiki.sqlite.save(unique_keys = ['Product'], data=data)
 
 #for el in root.cssselect("div[class='movie'] a"):
 #testsPassed = root.cssselect("//div[@class='movie']/a[1]/img/@alt")
