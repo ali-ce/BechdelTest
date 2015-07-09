@@ -6,7 +6,7 @@ import lxml.html
 html = scraperwiki.scrape("http://bechdeltest.com/?list=all")
 # # Find something on the page using css selectors
 root = lxml.html.fromstring(html)
-title = root.cssselect("//div[@class='movie']/a[2]/text()")
+for title in root.cssselect("div.movie a[2] text()")
 print title
 #testsPassed = root.cssselect("//div[@class='movie']/a[1]/img/@alt")
 #testComment = root.cssselect("//div[@class='movie']/a[2]/img/@title")
