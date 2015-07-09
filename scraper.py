@@ -5,7 +5,7 @@ import lxml.html
 import requests
 
 html = requests.get("http://bechdeltest.com/?list=all").text
-root = lxml.html.fromstring(html)
+root = lxml.html.fromstring(html,encoding='UTF-8')
 for el in root.cssselect("div[class='movie'] a"):
  title = el.text_content()
  print title
