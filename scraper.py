@@ -12,8 +12,8 @@ for movie in movieList:
  movieID = movie.attrib['id']
  title = movie.text_content().encode('utf-8')
  imdbUrl = movie.attrib['href'] [0]
- passed = movieList.cssselect( "img").attib['alt']
- passInfo = movieList.cssselect( "img").attib['title']
+ passed = movieList.cssselect( "img").attrib['alt']
+ passInfo = movieList.cssselect( "img").attrib['title']
  link = movie.attrib['href'] [1]
  data = {
   'movieID': movieID,
