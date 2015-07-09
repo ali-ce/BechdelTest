@@ -10,9 +10,7 @@ root = lxml.html.fromstring(html)
 for el in root.cssselect("div[class='movie'] a")[2]:
   title = el.text
   print title
-  break
   
-print title
 #testsPassed = root.cssselect("//div[@class='movie']/a[1]/img/@alt")
 #testComment = root.cssselect("//div[@class='movie']/a[2]/img/@title")
 #bechdelUrl = root.cssselect("//div[@class='movie']/a[2]/@href")
