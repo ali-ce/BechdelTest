@@ -6,7 +6,13 @@ import requests
 
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
-scraperwiki.sqlite.save(unique_keys = ["id"], data = {"id":[movieID.attrib['id'] for id in root.cssselect("div[class='movie'] a")], 'Title': [title.text_content().encode('utf-8') for title in root.cssselect("div[class='movie'] a")]})
+
+database = {
+ 'id':[movieID.attrib['id'] for movieID in root.cssselect("div[class='movie'] a")],
+ 'Title':[title.text_content().encode('utf-8') for title in root.cssselect("div[class='movie'] a")]
+ }
+
+scraperwiki.sqlite.save(unique_keys = ["id"], data = database)
 #for el in root.cssselect("div[class='movie'] a"):
  #title = el.text_content().encode('utf-8')
  #print title
