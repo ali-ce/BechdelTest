@@ -4,8 +4,24 @@ import requests
 
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
-movieList = [link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")]
-print movieList
+movieList = ["http://bechdeltest.com/"+link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")]
+
+for link in movieList:
+ movieID =
+ movieTitle = 
+ year = 
+ result =
+ pass =
+ amovie.attrib['id']each link, get:
+Movie Title
+Movie ID
+Year
+IMDB link
+Pass or Fail
+Number of tests passed
+Description of outcome
+Dubious?
+MovieLink
 
 #for movie in movieList:
 # movieID = movie.attrib['id']
