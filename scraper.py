@@ -4,11 +4,12 @@ import requests
 
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
-movieList = ["http://bechdeltest.com/"+link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")]
-print movieList[1]
+movieList = ["http://bechdeltest.com"+link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")]
 
-#for link in movieList:
- #movieID =
+for link in movieList:
+ movieID = link.split("/")[3]
+ print movieID
+ break
  #movieTitle = 
  #year = 
  #result =
