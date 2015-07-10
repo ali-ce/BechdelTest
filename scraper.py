@@ -10,7 +10,7 @@ for link in movieList:
  htmlMovie = requests.get(link).text
  rootMovie = lxml.html.fromstring(htmlMovie)
  movieID = link.split("/")[4]
- title = rootMovie.cssselect("h2 a text()")
+ title = [text.text_content() for text in rootMovie.cssselect("h2 a")]
  print title
  break
  #movieTitle = 
