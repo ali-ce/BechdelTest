@@ -1,29 +1,31 @@
+# This is a template for a Python scraper on morph.io (https://morph.io)
+# including some code snippets below that you should find helpful
 import scraperwiki
 import lxml.html
 import requests
 
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
-linkList = root.cssselect("div[class='movie'] a").attrib['href']
-print linkList
+movieList = [link.get('href') for link in root.cssselect("div[class='movie'] a")]
+print movieList
 
-#for movie in movieList:
- #movieID = movie.attrib['id']
- #title = movie.text_content().encode('utf-8')
- #imdbUrl = movie.attrib['href'] [0]
- #passed = movieList.cssselect( "img").attrib['alt']
- #passInfo = movieList.cssselect( "img").attrib['title']
- #link = movie.attrib['href'] [1]
- #data = {
-  #'movieID': movieID,
-  #'Title': title,
-  #'IMDb Profile': imdbUrl,
-  #'Number of Criteria Passed': passed,
-  #'Details on Criteria Passed': passInfo,
-  #'Source and Discussion': link
- # }
- #scraperwiki.sqlite.save(unique_keys = ['movieID'], data=data)
- #print data
+for movie in movieList:
+ movieID = movie.attrib['id']
+ title = movie.text_content().encode('utf-8')
+ imdbUrl = movie.attrib['href'] [0]
+ passed = movieList.cssselect( "img").attrib['alt']
+ passInfo = movieList.cssselect( "img").attrib['title']
+ link = movie.attrib['href'] [1]
+ data = {
+  'movieID': movieID,
+  'Title': title,
+  'IMDb Profile': imdbUrl,
+  'Number of Criteria Passed': passed,
+  'Details on Criteria Passed': passInfo,
+  'Source and Discussion': link
+  }
+ scraperwiki.sqlite.save(unique_keys = ['movieID'], data=data)
+ print data
 
 #for el in root.cssselect("div[class='movie'] a"):
  #title = el.text_content().encode('utf-8')
