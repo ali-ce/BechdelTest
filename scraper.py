@@ -7,8 +7,11 @@ root = lxml.html.fromstring(html)
 movieList = ["http://bechdeltest.com"+link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")]
 
 for link in movieList:
- movieID = link.split("/")[3]
- print movieID
+ htmlMovie = requests.get(link).text
+ rootMovie = lxml.html.fromstring(htmlMovie)
+ movieID = link.split("/")[4]
+ title = rootMovie.cssselect("h2 a").text_content()
+ print title
  break
  #movieTitle = 
  #year = 
