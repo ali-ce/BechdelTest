@@ -4,7 +4,7 @@ import requests
 
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
-movieList = [link.get('href')[0] for link in root.cssselect("div[class='movie'] a")]
+movieList = [link.get('href') for link in root.cssselect("div[class='movie'] a(1)")]
 print movieList
 
 #for movie in movieList:
