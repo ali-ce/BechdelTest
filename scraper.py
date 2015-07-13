@@ -27,7 +27,7 @@ for link in movieList:
  if criteriaPassed == "0":
   passedTest = "No"
   statusDetails = "Less than two named women characters"
- print passedTest " and " statusDetails
+ print passedTest,statusDetails
  break
 
 #Dubious?
