@@ -83,7 +83,7 @@ for link in movieList:
   'Country' : country,
   'IMDb Rating' : imdb_rating,
   'IMDb Votes' : imdb_votes,
-  'Source on Bechdel Test' : source,
+  'Source on Bechdel Test' : source_url,
   'IMDb Profile' : imdb_url,
   'API Source' : omdb_url,
   }
