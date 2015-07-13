@@ -51,7 +51,9 @@ for link in movieList:
  omdbUrl = "http://www.omdbapi.com/?i="+imdbID
 #Omdb Data
  response = urllib.urlopen(omdbUrl)
- data = json.loads(response.read())
- print data
+ omdbData = json.loads(response.read())
+ poster = omdbdata['Poster']
+ print poster
  break
 #Write to Database
+
