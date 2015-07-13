@@ -87,5 +87,5 @@ for link in movieList:
   'IMDb Profile' : imdb_url,
   'API Source' : omdb_url,
   }
- print data
- break
+#Save to Database
+scraperwiki.sqlite.save(unique_keys=["source on Bechdel Test"], data=data)
