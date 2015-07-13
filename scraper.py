@@ -65,7 +65,7 @@ for link in movieList:
  imdbRating = omdb_data['imdbRating']
  imdbVotes = omdb_data['imdbVotes']
 #Write to Database
- data = {
-  "Movie" : title
-  "Year Released" : year
-  "
+ #data = {
+  #"Movie" : title
+  #"Year Released" : year
+  #"
