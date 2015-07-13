@@ -11,15 +11,16 @@ for link in movieList:
  rootMovie = lxml.html.fromstring(htmlMovie)
  movieID = link.split("/")[4]
  title = rootMovie.cssselect("h2 a:nth-of-type(1)")[0].text_content()
- print "-".join(title.split())
+ year = title.split()[1]
+ print year
  break
  #movieTitle = 
  #year = 
  #result =
  #pass =
  #amovie.attrib['id']each link, get:
-#Movie Title
-#Movie ID
+
+
 #Year
 #IMDB link
 #Pass or Fail
