@@ -13,7 +13,13 @@ for link in movieList:
  title = rootMovie.cssselect("h2 a:nth-of-type(1)")[0].text_content()
  year = title.split(' ')[-1].replace('(','').replace(')','')
  imdbUrl = rootMovie.cssselect("h2 a")[0].get('href')
- criteria = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
+ criteriaPassed = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
+ if criteriaPassed == "3":
+  passedTest = "Yes"
+ else:
+  passedTest = "No"
+ print passedTest
+   
  print criteria
  
  break
