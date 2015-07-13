@@ -14,7 +14,6 @@ for link in movieList:
  year = title.split(' ')[-1].replace('(','').replace(')','')
  imdbUrl = rootMovie.cssselect("h2 a").get('href')
  print imdbUrl
- print "A"
  break
  
 #IMDB link
