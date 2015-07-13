@@ -53,7 +53,7 @@ for link in movieList:
  response = urllib.urlopen(omdbUrl)
  omdbData = json.loads(response.read())
  poster = omdbData['Poster']
- release = omdbData['Release']
+ release = omdbData['Released']
  genre = omdbData['Genre']
  director = omdbData['Director']
  runtime = omdbData['Runtime']
