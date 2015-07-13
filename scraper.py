@@ -52,7 +52,7 @@ for link in movieList:
 #Omdb Data
  response = urllib.urlopen(omdbUrl)
  omdbData = json.loads(response.read())
- poster = omdbdata['Poster']
+ poster = omdbData['Poster']
  print poster
  break
 #Write to Database
