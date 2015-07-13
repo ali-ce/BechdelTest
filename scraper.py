@@ -71,7 +71,7 @@ for link in movieList:
   'Outcome Details' : status_details,
   'Has at Least Two Named Women' : two_women,
   'Women Talk to Each Other' : women_talk,
-  'Women Talk To Each Other About Something Other Than Men' : women_no_men,
+  'Women Talk To Each Other About Something Other Than Men' : women_talk_no_men,
   'Date Added' : date_added,
   'Year Released' : year,
   'Date Released': release,
