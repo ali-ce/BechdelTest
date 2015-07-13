@@ -17,19 +17,19 @@ for link in movieList:
  criteriaPassed = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
  if criteriaPassed == "3":
   passedTest = "Yes"
-  statusDetails = "Two or more named women characters who talk to each other about something other than a man"
+  statusDetails = "Two or more named women characters, they talk to each other about something other than a man"
  if criteriaPassed == "2":
   passedTest = "No"
-  statusDetails = "Two or more named women characters, but they only talk to each other about men"
+  statusDetails = "Two or more named women characters, they only talk to each other about men"
  if criteriaPassed == "1":
   passedTest = "No"
-  statusDetails = "Two or more named women characters, but they don't talk to each other"
+  statusDetails = "Two or more named women characters, they don't talk to each other"
  if criteriaPassed == "0":
   passedTest = "No"
   statusDetails = "Less than two named women characters"
-clarity = rootMovie.cssselect("p")[0].text_content()
-print clarity
-break
+ clarity = rootMovie.cssselect("p")[0].text_content()
+ print clarity
+ break
 
 #Dubious?
 
