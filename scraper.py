@@ -27,7 +27,10 @@ for link in movieList:
  if criteriaPassed == "0":
   passedTest = "No"
   statusDetails = "Less than two named women characters"
- clarity = rootMovie.cssselect("p")[0].text_content()
+ if "(although dubious"." in rootMovie.cssselect("p")[0].text_content():
+  clarity = "Dubious"
+ else:
+  clarity = "Not Dubious"
  print clarity
  break
 
