@@ -19,9 +19,6 @@ for link in movieList:
  else:
   passedTest = "No"
  print passedTest
-   
- print criteria
- 
  break
  
 #Pass or Fail
