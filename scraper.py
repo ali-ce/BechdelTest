@@ -60,7 +60,7 @@ for link in movieList:
  plot = omdbData['Plot']
  country = omdbData['Country']
  imdbRating = omdbData['imdbRating']
- imdbVotes = omdbData['Votes']
+ imdbVotes = omdbData['imdbVotes']
  print poster,release,genre,director,runtime,plot,country,imdbRating,imdbVotes
  break
  break
