@@ -15,54 +15,57 @@ for link in movieList:
  title = rootMovie.cssselect("h2 a:nth-of-type(1)")[0].text_content()
  year = title.split(' ')[-1].replace('(','').replace(')','')
 #Bechdel Test Result
- criteriaPassed = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
- if criteriaPassed == "3":
-  passedTest = "Yes"
+ criteria_passed = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
+ if criteria_passed == "3":
+  passed_test = "Yes"
   two_women = "Yes"
   women_talk = "Yes"
   women_talk_no_men = "Yes"
-  statusDetails = "Two or more named women characters, they talk to each other about something other than a man"
- if criteriaPassed == "2":
-  passedTest = "No"
+  status_details = "Two or more named women characters, they talk to each other about something other than a man"
+ if criteria_passed == "2":
+  passed_test = "No"
   two_women = "Yes"
   women_talk = "Yes"
   women_talk_no_men = "No"
-  statusDetails = "Two or more named women characters, they only talk to each other about men"
- if criteriaPassed == "1":
-  passedTest = "No"
+  status_details = "Two or more named women characters, they only talk to each other about men"
+ if criteria_passed == "1":
+  passed_test = "No"
   two_women = "Yes"
   women_talk = "No"
   women_talk_no_men = "No"
-  statusDetails = "Two or more named women characters, they don't talk to each other"
- if criteriaPassed == "0":
-  passedTest = "No"
+  status_details = "Two or more named women characters, they don't talk to each other"
+ if criteria_passed == "0":
+  passed_test = "No"
   two_women = "No"
   women_talk = "No"
   women_talk_no_men = "No"
-  statusDetails = "Less than two named women characters"
+  status_details = "Less than two named women characters"
  if '(although dubious).' in rootMovie.cssselect("p")[0].text_content():
   clarity = "Dubious"
  else:
   clarity = "Not Dubious"
- movieID = link.split("/")[4]
- sourceUrl = link
- imdbUrl = rootMovie.cssselect("h2 a")[0].get('href')
- imdbID = imdbUrl.split('title/')[1].replace('/','')
- omdbUrl = "http://www.omdbapi.com/?i="+imdbID
+ date_added = rootMovie.cssselect("p")[0].text_content().split(' on ')[1].split(' ')[0]
+ print date_added
+ break
+ movie_id = link.split("/")[4]
+ source_url = link
+ imdb_url = rootMovie.cssselect("h2 a")[0].get('href')
+ imdb_id = imdb_url.split('title/')[1].replace('/','')
+ omdb_url = "http://www.omdbapi.com/?i="+imdb_id
 #Omdb Data
- response = urllib.urlopen(omdbUrl)
- omdbData = json.loads(response.read())
- poster = omdbData['Poster']
- release = omdbData['Released']
- genre = omdbData['Genre']
- director = omdbData['Director']
- runtime = omdbData['Runtime']
- plot = omdbData['Plot']
- country = omdbData['Country']
- imdbRating = omdbData['imdbRating']
- imdbVotes = omdbData['imdbVotes']
- print poster,release,genre,director,runtime,plot,country,imdbRating,imdbVotes
- break
- break
+ response = urllib.urlopen(omdb_url)
+ omdb_data = json.loads(response.read())
+ poster = omdb_data['Poster']
+ release = omdb_data['Released']
+ genre = omdb_data['Genre']
+ director = omdb_data['Director']
+ runtime = omdb_data['Runtime']
+ plot = omdb_data['Plot']
+ country = omdb_data['Country']
+ imdbRating = omdb_data['imdbRating']
+ imdbVotes = omdb_data['imdbVotes']
 #Write to Database
-
+ data = {
+  "Movie" : title
+  "Year Released" : year
+  "
