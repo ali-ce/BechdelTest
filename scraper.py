@@ -53,7 +53,16 @@ for link in movieList:
  response = urllib.urlopen(omdbUrl)
  omdbData = json.loads(response.read())
  poster = omdbData['Poster']
- print poster
+ release = omdbData['Release']
+ genre = omdbData['Genre']
+ director = omdbData['Director']
+ runtime = omdbData['Runtime']
+ plot = omdbData['Plot']
+ country = omdbData['Country']
+ imdbRating = omdbData['imdbRating']
+ imdbVotes = omdbData['Votes']
+ print poster,release,genre,director,runtime,plot,country,imdbRating,imdbVotes
+ break
  break
 #Write to Database
 
