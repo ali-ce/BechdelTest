@@ -9,6 +9,7 @@ movieList = ["http://bechdeltest.com"+link.get('href') for link in root.cssselec
 for link in movieList:
  htmlMovie = requests.get(link).text
  rootMovie = lxml.html.fromstring(htmlMovie)
+ source = link
  movieID = link.split("/")[4]
  title = rootMovie.cssselect("h2 a:nth-of-type(1)")[0].text_content()
  year = title.split(' ')[-1].replace('(','').replace(')','')
@@ -16,16 +17,20 @@ for link in movieList:
  criteriaPassed = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
  if criteriaPassed == "3":
   passedTest = "Yes"
- else:
+  statusDetails = "Two or more named women characters who talk to each other about something other than a man"
+ if criteriaPassed == "2":
   passedTest = "No"
- print passedTest
+  statusDetails = "Two or more named women characters, but they only talk to each other about men"
+ if criteriaPassed == "1":
+  passedTest = "No"
+  statusDetails = "Two or more named women characters, but they don't talk to each other"
+ if criteriaPassed == "0":
+  passedTest = "No"
+  statusDetails = "Less than two named women characters"
+ print passedTest " and " statusDetails
  break
- 
-#Pass or Fail
-#Number of tests passed
-#Description of outcome
+
 #Dubious?
-#MovieLink
 
 #for movie in movieList:
 # movieID = movie.attrib['id']
