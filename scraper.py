@@ -13,7 +13,7 @@ for link in movieList:
  title = rootMovie.cssselect("h2 a:nth-of-type(1)")[0].text_content()
  year = title.split(' ')[-1].replace('(','').replace(')','')
  imdbUrl = rootMovie.cssselect("h2 a").get('href')
- print imdbUrl
+ print imdbUrl+"A"
  break
  
 #IMDB link
