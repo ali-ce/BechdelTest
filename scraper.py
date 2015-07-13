@@ -2,6 +2,7 @@ import scraperwiki
 import lxml.html
 import requests
 import json
+import urllib
 
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
@@ -49,4 +50,8 @@ for link in movieList:
  imdbID = imdbUrl.split('title/')[1].replace('/','')
  omdbUrl = "http://www.omdbapi.com/?i="+imdbID
 #Omdb Data
+ response = urllib.urlopen(omdbUrl)
+ data = json.loads(response.read())
+ print data
+ break
 #Write to Database
