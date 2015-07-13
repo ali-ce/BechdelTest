@@ -9,11 +9,8 @@ movieList = ["http://bechdeltest.com"+link.get('href') for link in root.cssselec
 for link in movieList:
  htmlMovie = requests.get(link).text
  rootMovie = lxml.html.fromstring(htmlMovie)
- source = link
- movieID = link.split("/")[4]
  title = rootMovie.cssselect("h2 a:nth-of-type(1)")[0].text_content()
  year = title.split(' ')[-1].replace('(','').replace(')','')
- imdbUrl = rootMovie.cssselect("h2 a")[0].get('href')
  criteriaPassed = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
  if criteriaPassed == "3":
   passedTest = "Yes"
@@ -31,8 +28,13 @@ for link in movieList:
   clarity = "Dubious"
  else:
   clarity = "Not Dubious"
- print clarity
- break
+ movieID = link.split("/")[4]
+ sourceUrl = link
+ imdbUrl = rootMovie.cssselect("h2 a")[0].get('href')
+ imdbID = imdbUrl.imdbUrl.split('title/')[1].replace('/','')
+ omdbUrl = "http://www.omdbapi.com/?i="+imdbID
+ print omdbUrl
+
 
 #Dubious?
 
