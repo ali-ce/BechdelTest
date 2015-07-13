@@ -14,15 +14,27 @@ for link in movieList:
  criteriaPassed = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
  if criteriaPassed == "3":
   passedTest = "Yes"
+  two_women = "Yes"
+  women_talk = "Yes"
+  women_talk_no_men = "Yes"
   statusDetails = "Two or more named women characters, they talk to each other about something other than a man"
  if criteriaPassed == "2":
   passedTest = "No"
+  two_women = "Yes"
+  women_talk = "Yes"
+  women_talk_no_men = "No"
   statusDetails = "Two or more named women characters, they only talk to each other about men"
  if criteriaPassed == "1":
   passedTest = "No"
+  two_women = "Yes"
+  women_talk = "No"
+  women_talk_no_men = "No"
   statusDetails = "Two or more named women characters, they don't talk to each other"
  if criteriaPassed == "0":
   passedTest = "No"
+  two_women = "No"
+  women_talk = "No"
+  women_talk_no_men = "No"
   statusDetails = "Less than two named women characters"
  if '(although dubious).' in rootMovie.cssselect("p")[0].text_content():
   clarity = "Dubious"
@@ -31,7 +43,7 @@ for link in movieList:
  movieID = link.split("/")[4]
  sourceUrl = link
  imdbUrl = rootMovie.cssselect("h2 a")[0].get('href')
- imdbID = imdbUrl.imdbUrl.split('title/')[1].replace('/','')
+ imdbID = imdbUrl.split('title/')[1].replace('/','')
  omdbUrl = "http://www.omdbapi.com/?i="+imdbID
  print omdbUrl
 
