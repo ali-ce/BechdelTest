@@ -64,28 +64,28 @@ for link in movieList:
  imdb_votes = omdb_data['imdbVotes']
 #Write to Database
  data = {
-  'Movie' : title;
-  'Bechdel Test Outcome' : passed_test;
-  'Criteria Passed' : criteria_passed;
-  'Clarity of Outcome' : clarity;
-  'Outcome Details' : status_details
-  'Has at Least Two Named Women' : two_women;
-  'Women Talk to Each Other' : women_talk;
-  'Women Talk To Each Other About Something Other Than Men' : women_no_men;
-  'Date Added' : date_added;
-  'Year Released' : year;
-  'Date Released': release;
-  'Movie Poster' : poster;
-  'Genre' : genre;
-  'Director' : director;
-  'Runtime' : runtime;
-  'Plot' : plot;
-  'Country' : country;
-  'IMDb Rating' : imdb_rating;
-  'IMDb Votes' : imdb_votes;
-  'Source on Bechdel Test' : source;
-  'IMDb Profile' : imdb_url;
-  'API Source' : omdb_url;
+  'Movie' : title,
+  'Bechdel Test Outcome' : passed_test,
+  'Criteria Passed' : criteria_passed,
+  'Clarity of Outcome' : clarity,
+  'Outcome Details' : status_details,
+  'Has at Least Two Named Women' : two_women,
+  'Women Talk to Each Other' : women_talk,
+  'Women Talk To Each Other About Something Other Than Men' : women_no_men,
+  'Date Added' : date_added,
+  'Year Released' : year,
+  'Date Released': release,
+  'Movie Poster' : poster,
+  'Genre' : genre,
+  'Director' : director,
+  'Runtime' : runtime,
+  'Plot' : plot,
+  'Country' : country,
+  'IMDb Rating' : imdb_rating,
+  'IMDb Votes' : imdb_votes,
+  'Source on Bechdel Test' : source,
+  'IMDb Profile' : imdb_url,
+  'API Source' : omdb_url,
   }
   print data
   break
