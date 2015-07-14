@@ -93,7 +93,7 @@ for link in movieList:
 #Write to Database
  data = {
   'Movie' : title,
-  'Bechdel Test Outcome' : passed_test,
+  'Passes Bechdel Test' : passed_test,
   'Criteria Passed' : criteria_passed,
   'Clarity of Outcome' : clarity,
   'Outcome Details' : status_details,
