@@ -53,15 +53,42 @@ for link in movieList:
 #Omdb Data
  response = urllib.urlopen(omdb_url)
  omdb_data = json.loads(response.read())
- poster = omdb_data['Poster']
- release = omdb_data['Released']
- genre = omdb_data['Genre']
- director = omdb_data['Director']
- runtime = omdb_data['Runtime']
- plot = omdb_data['Plot']
- country = omdb_data['Country']
- imdb_rating = omdb_data['imdbRating']
- imdb_votes = omdb_data['imdbVotes']
+ if 'Poster' in omdb_data:
+   poster = omdb_data['Poster']
+ else:
+  poster = 'N/A'
+ if 'Released' in omdb_data:
+  release = omdb_data['Released']
+ else:
+  release = 'N/A'
+ if 'Genre' in omdb_data:
+  genre = omdb_data['Genre']
+ else:
+  genre = 'N/A'
+ if 'Director' in omdb_data:
+  director = omdb_data['Director']
+ else:
+  director = 'N/A'
+ if 'Runtime' in omdb_data:
+  runtime = omdb_data['Runtime']
+ else:
+  runtime = 'N/A'
+ if 'Plot' in omdb_data:
+  plot = omdb_data['Plot']
+ else:
+  plot = 'N/A/
+ if 'Country' in omdb_data:
+  country = omdb_data['Country']
+ else:
+  country = 'N/A'
+ if 'imdbRating' in omdb_data:
+  imdb_rating = omdb_data['imdbRating']
+ else:
+  imdb_rating = 'N/A'
+ if 'imdbVotes in omdb_data:
+  imdb_votes = omdb_data['imdbVotes']
+ else:
+  imdb_votes = 'N/A/
 #Write to Database
  data = {
   'Movie' : title,
@@ -88,4 +115,5 @@ for link in movieList:
   'API Source' : omdb_url,
   }
 #Save to Database
-scraperwiki.sqlite.save(unique_keys=["source on Bechdel Test"], data=data)
+ scraperwiki.sqlite.save(unique_keys=["source on Bechdel Test"], data=data)
+ break
