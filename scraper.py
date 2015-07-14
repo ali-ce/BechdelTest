@@ -6,7 +6,7 @@ import urllib
 
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
-movieList = ["http://bechdeltest.com"+link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")].replace(" ","")
+movieList = ["http://bechdeltest.com"+link.get('href').replace(" ","") for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")]
 print movieList
 rows_scraped = 0
 number_movies = len(movieList)
