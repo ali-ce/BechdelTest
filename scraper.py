@@ -88,7 +88,7 @@ for link in movieList:
  if 'imdbVotes' in omdb_data:
   imdb_votes = omdb_data['imdbVotes']
  else:
-  imdb_votes = 'N/A/
+  imdb_votes = 'N/A'
 #Write to Database
  data = {
   'Movie' : title,
