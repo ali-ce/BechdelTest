@@ -57,39 +57,39 @@ for link in movieList:
  if 'Poster' in omdb_data:
    poster = omdb_data['Poster']
  else:
-  poster = 'N/A'
+  poster = ''
  if 'Released' in omdb_data:
   release = omdb_data['Released']
  else:
-  release = 'N/A'
+  release = ''
  if 'Genre' in omdb_data:
   genre = omdb_data['Genre']
  else:
-  genre = 'N/A'
+  genre = ''
  if 'Director' in omdb_data:
   director = omdb_data['Director']
  else:
-  director = 'N/A'
+  director = ''
  if 'Runtime' in omdb_data:
   runtime = omdb_data['Runtime'].split(' min')[0]
  else:
-  runtime = 'N/A'
+  runtime = ''
  if 'Plot' in omdb_data:
   plot = omdb_data['Plot']
  else:
-  plot = 'N/A'
+  plot = ''
  if 'Country' in omdb_data:
   country = omdb_data['Country']
  else:
-  country = 'N/A'
+  country = ''
  if 'imdbRating' in omdb_data:
   imdb_rating = omdb_data['imdbRating']
  else:
-  imdb_rating = 'N/A'
+  imdb_rating = ''
  if 'imdbVotes' in omdb_data:
   imdb_votes = omdb_data['imdbVotes']
  else:
-  imdb_votes = 'N/A'
+  imdb_votes = ''
 #Write to Database
  data = {
   'Movie' : title,
@@ -119,6 +119,7 @@ for link in movieList:
  scraperwiki.sqlite.save(unique_keys=["source on Bechdel Test"], data=data)
  rows_scraped = rows_scraped+1
  data = {}
- print "Saved "+str(rows_scraped)+" / "+str(number_movies)+" movies!"
+ progress = int((rows_scraped/number_movies)*100)
+ print "Saved "+str(rows_scraped)+" / "+str(number_movies)+" movies ---> Process: "+str(progress)+"%"
 #Result
-#print "you are awesome, you saved "+number_of_rows+" movies!"
+print "You are awesome, you saved all movies!"
