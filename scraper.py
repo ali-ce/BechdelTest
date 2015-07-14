@@ -100,7 +100,7 @@ for link in movieList:
   'Has at Least Two Named Women' : two_women,
   'Women Talk to Each Other' : women_talk,
   'Women Talk To Each Other About Something Other Than Men' : women_talk_no_men,
-  'Date Added' : date_added,
+  'Date Bechdel Result Added' : date_added,
   'Year Released' : year,
   'Date Released': release,
   'Movie Poster' : poster,
