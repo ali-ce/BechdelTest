@@ -7,14 +7,13 @@ import urllib
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
 movieList = ["http://bechdeltest.com"+link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(2)")]
-print movieList
 rows_scraped = 0
 number_movies = len(movieList)
 for link in movieList:
  htmlMovie = requests.get(link).text
  rootMovie = lxml.html.fromstring(htmlMovie)
 #Basic Movie Info
- title = rootMovie.cssselect("h2 a:nth-of-type(1)")[0].text_content()
+ title = rootMovie.cssselect("h2 a:nth-of-type(1)")[0].text_content().strip()
  year = title.split(' ')[-1].replace('(','').replace(')','')
 #Bechdel Test Result
  criteria_passed = rootMovie.cssselect("h2 img")[0].get('alt').replace('[[',"").replace(']]','')
@@ -72,7 +71,7 @@ for link in movieList:
  else:
   director = 'N/A'
  if 'Runtime' in omdb_data:
-  runtime = omdb_data['Runtime']
+  runtime = omdb_data['Runtime'].split(' min')[0]
  else:
   runtime = 'N/A'
  if 'Plot' in omdb_data:
@@ -107,7 +106,7 @@ for link in movieList:
   'Movie Poster' : poster,
   'Genre' : genre,
   'Director' : director,
-  'Runtime' : runtime,
+  'Runtime (min)' : runtime,
   'Plot' : plot,
   'Country' : country,
   'IMDb Rating' : imdb_rating,
