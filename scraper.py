@@ -7,7 +7,8 @@ import urllib
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
 movieList = ["http://bechdeltest.com"+link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")]
-number_of_rows = 0
+rows_scraped = 0
+number_movies = len(movieList)
 for link in movieList:
  htmlMovie = requests.get(link).text
  rootMovie = lxml.html.fromstring(htmlMovie)
@@ -116,8 +117,8 @@ for link in movieList:
   }
 #Save to Database
  scraperwiki.sqlite.save(unique_keys=["source on Bechdel Test"], data=data)
- number_of_rows = number_of_rows+1
+ rows_scraped = rows_scraped+1
  data = {}
- print "you are awesome, you saved "+str(number_of_rows)+" movies!"
+ print "Saved "+str(number_of_rows)+"/"+str(number_movies)+" movies!"
 #Result
 #print "you are awesome, you saved "+number_of_rows+" movies!"
