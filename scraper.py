@@ -118,6 +118,6 @@ for link in movieList:
  scraperwiki.sqlite.save(unique_keys=["source on Bechdel Test"], data=data)
  number_of_rows = number_of_rows+1
  data = {}
- print "you are awesome, you saved "+str(number_of_rows)+"movies!"
+ print "you are awesome, you saved "+str(number_of_rows)+" movies!"
 #Result
 #print "you are awesome, you saved "+number_of_rows+" movies!"
