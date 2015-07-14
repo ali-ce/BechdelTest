@@ -85,7 +85,7 @@ for link in movieList:
   imdb_rating = omdb_data['imdbRating']
  else:
   imdb_rating = 'N/A'
- if 'imdbVotes in omdb_data:
+ if 'imdbVotes' in omdb_data:
   imdb_votes = omdb_data['imdbVotes']
  else:
   imdb_votes = 'N/A/
