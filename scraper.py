@@ -119,7 +119,7 @@ for link in movieList:
  scraperwiki.sqlite.save(unique_keys=["source on Bechdel Test"], data=data)
  rows_scraped = rows_scraped+1
  data = {}
- progress = int((rows_scraped/number_movies)*100)
+ progress = float((rows_scraped/number_movies)*100)
  print "Saved "+str(rows_scraped)+" / "+str(number_movies)+" movies ---> Process: "+str(progress)+"%"
 #Result
 print "You are awesome, you saved all movies!"
