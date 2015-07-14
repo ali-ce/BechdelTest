@@ -76,7 +76,7 @@ for link in movieList:
  if 'Plot' in omdb_data:
   plot = omdb_data['Plot']
  else:
-  plot = 'N/A/
+  plot = 'N/A'
  if 'Country' in omdb_data:
   country = omdb_data['Country']
  else:
