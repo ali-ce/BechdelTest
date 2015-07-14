@@ -7,7 +7,7 @@ import urllib
 html = requests.get("http://bechdeltest.com/?list=all").text
 root = lxml.html.fromstring(html)
 movieList = ["http://bechdeltest.com"+link.get('href') for link in root.cssselect("div[class='movie'] a:nth-of-type(3)")]
-number_of_rown = 0
+number_of_rows = 0
 for link in movieList:
  htmlMovie = requests.get(link).text
  rootMovie = lxml.html.fromstring(htmlMovie)
