@@ -79,7 +79,10 @@ for link in movieList:
  else:
   plot = ''
  if 'Country' in omdb_data:
-  country = omdb_data['Country']
+  if omdb_data['Country'] == "Federal Republic of Yugoslavia":
+   county = "Yugoslavia"
+  else:
+   country = omdb_data['Country']
  else:
   country = ''
  if 'imdbRating' in omdb_data:
