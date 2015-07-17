@@ -101,7 +101,7 @@ for link in movieList:
   'Clarity of Outcome' : clarity,
   'Outcome Details' : status_details,
   'Has at Least Two Named Women' : two_women,
-  'Women Talk to Each Other' : women_talk,
+  'Women Talk to Each Other, But Only About Men' : women_talk,
   'Women Talk To Each Other About Something Other Than Men' : women_talk_no_men,
   'Date Bechdel Result Added' : date_added,
   'Year Released' : year,
