@@ -132,6 +132,7 @@ for link in movieList:
   'Main Actors' : actors,
   'Runtime (min)' : runtime,
   'Plot' : plot,
+  'Plot Keywords' : keywords,
   'Country' : country,
   'IMDb Rating' : imdb_rating,
   'IMDb Votes' : imdb_votes,
