@@ -103,7 +103,9 @@ for link in movieList:
   imdb_votes = ''
  if imdb_votes:
   popularity = round(float(imdb_votes)*float(imdb_rating))
- print popularity
+ else:
+ popularity = ''
+ 
 #IMDb Data: Producer and Keywords
  htmlIMDB = requests.get(imdb_url).text
  rootIMDB = lxml.html.fromstring(htmlIMDB)
@@ -133,6 +135,7 @@ for link in movieList:
   'Country' : country,
   'IMDb Rating' : imdb_rating,
   'IMDb Votes' : imdb_votes,
+  'IMDb Popularity' : popularity,
   'Source on Bechdel Test' : source_url,
   'IMDb Profile' : imdb_url,
   'API Source' : omdb_url,
