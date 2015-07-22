@@ -106,12 +106,10 @@ for link in movieList:
  else:
   popularity = ''
  
-#IMDb Data: Producer and Keywords
+#IMDb Data
  htmlIMDB = requests.get(imdb_url).text
  rootIMDB = lxml.html.fromstring(htmlIMDB)
  keywords = ', '.join(word.text_content().strip()for word in rootIMDB.cssselect("span[itemprop='keywords']"))
- print keywords
- break
 
 #Write to Database
  data = {
