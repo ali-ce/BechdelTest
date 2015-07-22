@@ -102,12 +102,12 @@ for link in movieList:
  else:
   imdb_votes = ''
  if imdb_votes:
-  popularity = round(float(imdb_votes)*float(imdb_rating),2)
+  popularity = round(float(imdb_votes)*float(imdb_rating))
  print popularity
 #IMDb Data: Producer and Keywords
  htmlIMDB = requests.get(imdb_url).text
  rootIMDB = lxml.html.fromstring(htmlIMDB)
- keywords = rootIMDB.cssselect("span[itemprop='keywords'").text_content().strip()
+ keywords = rootIMDB.cssselect("span[itemprop='keywords']").text_content().strip()
  print keywords
  break
 
