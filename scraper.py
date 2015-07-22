@@ -109,7 +109,7 @@ for link in movieList:
 #IMDb Data: Producer and Keywords
  htmlIMDB = requests.get(imdb_url).text
  rootIMDB = lxml.html.fromstring(htmlIMDB)
- keywords = rootIMDB.cssselect("span[itemprop='keywords']").text_content().strip()
+ keywords = ', '.join(word.text_content().strip()for word in rootIMDB.cssselect("span[itemprop='keywords']"))
  print keywords
  break
 
