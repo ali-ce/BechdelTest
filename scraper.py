@@ -85,6 +85,14 @@ for link in movieList:
    country = omdb_data['Country']
  else:
   country = ''
+ if 'Actors' in omdb_data:
+  actors = omdb_data['Actors']
+ else:
+  actors = ''
+ if 'Awards' in omdb_data:
+  awards = omdb_data['Awards']
+ else:
+  awards = ''
  if 'imdbRating' in omdb_data:
   imdb_rating = omdb_data['imdbRating']
  else:
@@ -93,6 +101,13 @@ for link in movieList:
   imdb_votes = omdb_data['imdbVotes']
  else:
   imdb_votes = ''
+#IMDb Data: Producer and Keywords
+ htmlIMDB = requests.get(imdb_url).text
+ rootIMDB = lxml.html.fromstring(htmlIMDB)
+ keywords = rootIMDB.cssselect("span[itemprop='keywords').text_content().strip
+ print keywords
+ break
+
 #Write to Database
  data = {
   'Movie' : title,
@@ -109,6 +124,7 @@ for link in movieList:
   'Movie Poster' : poster,
   'Genre' : genre,
   'Director' : director,
+  'Main Actors' : actors,
   'Runtime (min)' : runtime,
   'Plot' : plot,
   'Country' : country,
