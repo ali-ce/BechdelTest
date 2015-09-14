@@ -102,7 +102,7 @@ for link in movieList:
  else:
   imdb_votes = ''
  if imdb_votes:
-  popularity = round(float(imdb_votes)*float(imdb_rating.replace(",",""))
+  popularity = round(float(imdb_votes.replace(',',''))*float(imdb_rating))
  else:
   popularity = ''
  
