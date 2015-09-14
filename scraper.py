@@ -103,9 +103,9 @@ for link in movieList:
   imdb_votes = ''
  if imdb_votes:
   try:
-  popularity = round(float(imdb_votes.replace(',',''))*float(imdb_rating))
- except ValueError:
-  popularity = ''
+   popularity = round(float(imdb_votes.replace(',',''))*float(imdb_rating))
+  except ValueError:
+   popularity = ''
  else:
   popularity = ''
  
